@@ -2,9 +2,10 @@
 
   become: true
   tasks:
-    - name: update apt cache
-      apt:
-        update_cache: true
     - name: update apt packages
       apt:
+        clean: true
+        update_cache_retries: 5
+        update_cache_retry_max_delay: 60
+        update_cache: true
         upgrade: "yes"
