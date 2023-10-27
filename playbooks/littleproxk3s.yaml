@@ -4,6 +4,7 @@
   tasks:
     - name: update apt packages
       apt:
+        lock_timeout: 600
         update_cache_retries: 5
         update_cache_retry_max_delay: 60
         update_cache: true
