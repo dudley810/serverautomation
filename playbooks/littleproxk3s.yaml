@@ -5,5 +5,4 @@
     - name: update apt packages
       apt:
         update_cache: yes
-        upgrade: dist
-        autoremove: yes
+        upgrade: yes
