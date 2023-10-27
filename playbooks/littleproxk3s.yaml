@@ -4,6 +4,6 @@
   tasks:
     - name: update apt packages
       apt:
-        clean: true
+        become: true
         update_cache: true
         upgrade: "yes"
