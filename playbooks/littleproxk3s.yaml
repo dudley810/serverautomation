@@ -1,5 +1,6 @@
 - name: Update package cache and install a package
   hosts: all
+  become_user: ken
   become: true
   tasks:
     - name: apt-get update
