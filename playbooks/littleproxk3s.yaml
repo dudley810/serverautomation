@@ -2,10 +2,12 @@
 
   become: true
   tasks:
-    - name: update apt packages
-      apt:
-        lock_timeout: 600
-        update_cache_retries: 5
-        update_cache_retry_max_delay: 60
-        update_cache: true
-        upgrade: "yes"
+    - name: apt-get update
+      ansible.builtin.apt:
+          update_cache: yes
+    - name: apt-get dist-upgrade
+      ansible.builtin.apt:
+        upgrade: dist
+    - name: Remove dependencies that are no longer required
+      ansible.builtin.apt:
+        autoremove: true
