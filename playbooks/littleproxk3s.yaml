@@ -1,18 +1,13 @@
 - hosts: all
 
+  become_user: ken        
   tasks:
     - name: apt-get update
       ansible.builtin.apt:
-        become: true
-        become_user: ken
         update_cache: yes
     - name: apt-get dist-upgrade
       ansible.builtin.apt:
-        become: true
-        become_user: ken
         upgrade: dist
     - name: Remove dependencies that are no longer required
       ansible.builtin.apt:
-        become: true
-        become_user: ken
         autoremove: true
